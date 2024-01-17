@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block css %}
+<style>
+    main {
+        align-items: center;
+        width: 60vw;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post {
+        border: 1px solid black;
+        box-shadow: 5px 5px 5px black;
+        background-color: antiquewhite;
+        border-radius: 10px;
+        margin: 30px auto;
+        width: 60vw;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+    }
+    
+    .post h3 {
+        font-size: xx-large;
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    .post .name {
+        font-size: 12px;
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    .post .date {
+        font-size: 10px;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <main>
+    {% for post in posts %}
+        <div class="post">
+            <h3>{{ post.title }}</h3>
+            <p class="name"> {{ post.author }}</p>
+            <p class="date"> {{ post.date }}</p>
+            <p class="text"> {{ post.text }}</p>
+        </div>
+    {% endfor %}
+    </main>
+{% endblock %}
